@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import classes from "./LoginForm.module.css";
 const LoginForm = ({ Login }) => {
   const [details, setDetails] = useState({ name: "", email: "", password: "" });
@@ -53,7 +52,6 @@ const LoginForm = ({ Login }) => {
       </div>
       <div className={classes.button}>
         <button onClick={submitHandler}>SUBMIT</button>
-        <Link to="/home">Go to Home Page</Link>
       </div>
     </form>
   );

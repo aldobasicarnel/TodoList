@@ -4,17 +4,14 @@ const TodoPage = () => {
   const [todos, setTodos] = useState([]);
 
   const addingTodo = (todo) => {
+    console.log(todo);
     const newTodos = {
-      id: Math.random().toString(),
-      text: todo,
+      id: todo.id,
+      text: todo.text,
       complete: false,
     };
 
     setTodos([...todos].concat(newTodos));
-    /*
-    const newTodo = { todo, ...todos };
-    setTodos(newTodo);
-    */
   };
 
   useEffect(() => {
@@ -38,17 +35,34 @@ const TodoPage = () => {
       });
   }, []);
 
+  const deleteTodoHandler = (id) => {
+    fetch(
+      `https://todo-list-fe2fd-default-rtdb.firebaseio.com/todoList/text/${id}/text.json`,
+      {
+        method: "DELETE",
+        body: JSON.stringify({
+          id: id,
+        }),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setTodos([...todos].filter((todo) => todo.id !== todo.todoId));
+        window.location.reload(true);
+        console.log(data);
+      });
+  };
+
   return (
     <div>
       <TodoForm onSubmit={addingTodo} />
-
-      <h1>Test {todos.length}</h1>
 
       <div>
         {todos.length > 0 &&
           todos.map((todo, i) => (
             <div key={i}>
-              {todo.text} - {todo.id}
+              {todo.text}
+              <button onClick={() => deleteTodoHandler(todo.id)}>Delete</button>
             </div>
           ))}
       </div>

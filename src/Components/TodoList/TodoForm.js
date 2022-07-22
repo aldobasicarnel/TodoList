@@ -1,19 +1,10 @@
 import React, { useState } from "react";
 const TodoForm = (props) => {
   const [input, setInput] = useState("");
-  //  const [todos, setTodos] = useState([]);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    /*
-    const newTodos = {
-      id: Math.random().toString(),
-      text: input,
-      complete: false,
-    };
 
-    setTodos([...todos].concat(newTodos));
-  */
     addingTodoHandler(input);
     setInput("");
   };
@@ -37,15 +28,13 @@ const TodoForm = (props) => {
     )
       .then((response) => response.json())
       .then((data) => {
-        props.onSubmit(data);
+        props.onSubmit({
+          id: data.name,
+          text: todo,
+        });
       });
   };
-  /*
-  const deleteTodoHandler = (id) => {
-    const deletedTodo = [...todos].filter((input) => input.id !== id);
-    setTodos(deletedTodo);
-  };
-*/
+
   return (
     <div>
       <form onSubmit={submitHandler}>
