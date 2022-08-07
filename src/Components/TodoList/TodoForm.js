@@ -1,43 +1,23 @@
 import React, { useState } from "react";
+import { db } from "../FirebaseConfig/firebase";
+
 const TodoForm = (props) => {
   const [input, setInput] = useState("");
-
-  const submitHandler = (event) => {
-    event.preventDefault();
-
-    addingTodoHandler(input);
-    setInput("");
-  };
 
   const todoChangeHandler = (event) => {
     setInput(event.target.value);
   };
 
-  const addingTodoHandler = (todo) => {
-    fetch(
-      "https://todo-list-fe2fd-default-rtdb.firebaseio.com/todoList/text.json",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          text: todo,
-        }),
-        headers: {
-          "Content-type": "aplication/json; charset=UTF-8",
-        },
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        props.onSubmit({
-          id: data.name,
-          text: todo,
-        });
-      });
+  const addingTodoHandler = (e) => {
+    e.preventDefault();
+
+    db.collection("todos").add({ completed: false, todo: input });
+    setInput("");
   };
 
   return (
     <div>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={addingTodoHandler}>
         <div className="add-todo">
           <input
             type="text"
@@ -45,7 +25,7 @@ const TodoForm = (props) => {
             onChange={todoChangeHandler}
             placeholder="What is your main focus today?"
           ></input>
-          <button onClick={submitHandler}>Add Todo</button>
+          <button onClick={addingTodoHandler}>Add Todo</button>
         </div>
       </form>
     </div>
