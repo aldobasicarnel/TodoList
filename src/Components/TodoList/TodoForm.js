@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { db } from "../FirebaseConfig/firebase";
+import classes from "./TodoForm.module.css";
 
 const TodoForm = (props) => {
   const [input, setInput] = useState("");
@@ -18,7 +19,7 @@ const TodoForm = (props) => {
   return (
     <div>
       <form onSubmit={addingTodoHandler}>
-        <div className="add-todo">
+        <div className={classes.addTodo}>
           <input
             type="text"
             value={input}

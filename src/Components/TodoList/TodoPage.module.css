@@ -1,0 +1,35 @@
+.text {
+  font-size: 20px;
+  color: #d7eadd;
+}
+h3 {
+  text-align: left;
+  margin-left: 15px;
+  color: #d7eadd;
+}
+.btn {
+  border: 0;
+  margin: 10px;
+  border-radius: 5px;
+  width: 25px;
+  height: 20px;
+  background: transparent;
+  transition: 0.1s ease-in-out;
+  outline: 0;
+}
+.btn i {
+  font-size: 19px;
+}
+.btn svg {
+  width: 25px;
+  height: 20px;
+}
+.btn svg:hover {
+  background-color: #d7eadd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn svg:active {
+  transform: scale(0.93);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}

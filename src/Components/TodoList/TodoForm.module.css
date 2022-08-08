@@ -1,0 +1,32 @@
+.addTodo {
+  margin: 50px 0;
+}
+.addTodo input {
+  border: 0;
+  border-radius: 5px;
+  height: 35px;
+  width: 250px;
+  font-size: 20px;
+}
+.addTodo input::placeholder {
+  font-size: 17.5px;
+}
+
+.addTodo button {
+  border: 0;
+  margin: 10px;
+  border-radius: 5px;
+  width: 90px;
+  height: 35px;
+  background: transparent;
+  transition: 0.1s ease-in-out;
+  outline: 0;
+}
+.addTodo button:hover {
+  background-color: #d7eadd;
+  cursor: pointer;
+}
+.addTodo button:active {
+  transform: scale(0.93);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}

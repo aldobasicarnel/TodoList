@@ -8,7 +8,6 @@ const LoginPage = (props) => {
   };
 
   const [user, setUser] = useState({ name: "", email: "", password: "" });
-
   const [reset, setReset] = useState("");
 
   const LoginHandler = (details) => {

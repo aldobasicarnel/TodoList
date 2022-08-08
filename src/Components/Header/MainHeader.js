@@ -14,6 +14,7 @@ const MainHeader = () => {
             </NavLink>
           </li>
         </ul>
+        <h1>Todo Page</h1>
       </nav>
     </header>
   );
