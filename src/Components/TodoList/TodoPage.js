@@ -38,7 +38,13 @@ const TodoPage = () => {
         {todos.length > 0 &&
           todos.map((todo) => (
             <div key={todo.id}>
-              {todo.todo}
+              <span
+                style={{
+                  textDecoration: todo.completed ? "line-through" : "none",
+                }}
+              >
+                {todo.todo}
+              </span>
               <button
                 className={classes.btn}
                 type="submit"
@@ -59,7 +65,7 @@ const TodoPage = () => {
               </button>
               <button
                 className={classes.btn}
-                onClick={() => completeTodoHandler(todo.id)}
+                onClick={() => completeTodoHandler(todo.id, todo.completed)}
               >
                 <i className="bi bi-check2">
                   <svg
