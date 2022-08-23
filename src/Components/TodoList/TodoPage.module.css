@@ -1,6 +1,8 @@
 .text {
   font-size: 20px;
   color: #d7eadd;
+  text-align: left;
+  list-style-type: decimal;
 }
 h3 {
   text-align: left;

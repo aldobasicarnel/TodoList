@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import LoginForm from "../LoginForm/LoginForm";
-const LoginPage = (props) => {
+
+const LoginPage = () => {
   const adminUser = {
     email: "admin@123.com",
     password: "12345678",
@@ -29,6 +30,7 @@ const LoginPage = (props) => {
 
     setReset();
   };
+
   return (
     <div>
       {user.email !== "" ? <Redirect to="/home" /> : <Redirect to="/login" />}

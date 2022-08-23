@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import classes from "./LoginForm.module.css";
 import Card from "../Card/Card";
+
 const LoginForm = ({ Login }) => {
   const [details, setDetails] = useState({ name: "", email: "", password: "" });
 

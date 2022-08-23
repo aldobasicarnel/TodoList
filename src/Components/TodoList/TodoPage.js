@@ -34,10 +34,10 @@ const TodoPage = () => {
     <Card>
       <TodoForm onSubmit={getTodos} />
       <h3>Your list:</h3>
-      <div className={classes.text}>
+      <ul className={classes.text}>
         {todos.length > 0 &&
           todos.map((todo) => (
-            <div key={todo.id}>
+            <li key={todo.id}>
               <span
                 style={{
                   textDecoration: todo.completed ? "line-through" : "none",
@@ -80,9 +80,9 @@ const TodoPage = () => {
                   </svg>
                 </i>
               </button>
-            </div>
+            </li>
           ))}
-      </div>
+      </ul>
     </Card>
   );
 };

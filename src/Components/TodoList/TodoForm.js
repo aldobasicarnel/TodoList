@@ -17,19 +17,17 @@ const TodoForm = (props) => {
   };
 
   return (
-    <div>
-      <form onSubmit={addingTodoHandler}>
-        <div className={classes.addTodo}>
-          <input
-            type="text"
-            value={input}
-            onChange={todoChangeHandler}
-            placeholder="What is your main focus today?"
-          ></input>
-          <button onClick={addingTodoHandler}>Add Todo</button>
-        </div>
-      </form>
-    </div>
+    <form onSubmit={addingTodoHandler}>
+      <div className={classes.addTodo}>
+        <input
+          type="text"
+          value={input}
+          onChange={todoChangeHandler}
+          placeholder="What is your main focus today?"
+        ></input>
+        <button onClick={addingTodoHandler}>Add Todo</button>
+      </div>
+    </form>
   );
 };
 
